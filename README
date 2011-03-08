@@ -1,0 +1,16 @@
+
+Start matlab; startup.m will run automatically and set up your path.
+
+To test, run unittest.m .
+
+To check gradients, run:
+
+check_a_conv.m
+check_phi.m
+
+To collect all the individually saved basis function images into a movie,
+edit fig_avi.m and set paramstr to the paramstr you would like to watch
+evolve, then run fig_avi.m .
+
+--bjc 2010-03-10
+
