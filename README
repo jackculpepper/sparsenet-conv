@@ -1,4 +1,20 @@
 
+Convolutional sparsenet!
+Author: Jack Culpepper
+License: BSD
+
+
+This program is related to the following papers:
+
+B. A. Olshausen and D. J. Field. Emergence of simple-cell receptive field
+properties by learning a sparse code for natural images. Nature,
+381(6583):607-9, jun 1996.
+
+B. A. Olshausen BA (2003). IEEE International Conference on Image Processing.
+Sept. 14-17, 2003. Barcelona, Spain.
+
+
+
 Start matlab; startup.m will run automatically and set up your path.
 
 To test, run unittest.m .
