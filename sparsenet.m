@@ -36,6 +36,18 @@ for t = 1:num_trials
         case 'mintotol'
             a1 = mintotol(a0(:), 'objfun_a_conv', 100, 0.01, X, phi, lambda);
             a1 = reshape(a1,J,P);
+        case 'lbfgsb'
+            %% no bounds
+            lb  = zeros(1,J*P); % lower bound
+            ub  = zeros(1,J*P); % upper bound
+            nb  = zeros(1,J*P); % bound type (none)
+
+            [a1,fx,exitflag,userdata] = lbfgs(@objfun_a_conv, a0(:), ...
+                                              lb, ub, nb, ...
+                                              opts_lbfgs_a, ...
+                                              X, phi, lambda);
+            a1 = reshape(a1, J, P);
+
     end
 
     time_inf = toc;
@@ -130,9 +142,9 @@ for t = 1:num_trials
                 mn = min([Xs(:) ; EIs(:) ; Es(:)]);
                 mx = max([Xs(:) ; EIs(:) ; Es(:)]);
 
-                subp(3,1,1); imagesc(Xs, [mn mx]); axis image off;
-                subp(3,1,2); imagesc(EIs, [mn mx]); axis image off;
-                subp(3,1,3); imagesc(Es, [mn mx]); axis image off;
+                subplot(3,1,1); imagesc(Xs, [mn mx]); axis image off;
+                subplot(3,1,2); imagesc(EIs, [mn mx]); axis image off;
+                subplot(3,1,3); imagesc(Es, [mn mx]); axis image off;
 
             otherwise
                 figure(10); clf;
@@ -140,9 +152,9 @@ for t = 1:num_trials
                 mn = min([X(:) ; EI(:) ; E(:)]);
                 mx = max([X(:) ; EI(:) ; E(:)]);
 
-                subp(3,1,1); imagesc(X, [mn mx]); axis image off; colorbar;
-                subp(3,1,2); imagesc(EI, [mn mx]); axis image off; colorbar;
-                subp(3,1,3); imagesc(E, [mn mx]); axis image off; colorbar;
+                subplot(3,1,1); imagesc(X, [mn mx]); axis image off; colorbar;
+                subplot(3,1,2); imagesc(EI, [mn mx]); axis image off; colorbar;
+                subplot(3,1,3); imagesc(E, [mn mx]); axis image off; colorbar;
         end
 
         %% display coefficients

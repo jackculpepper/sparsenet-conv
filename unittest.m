@@ -43,11 +43,18 @@ end
 mintype_inf = 'minFunc';
 mintype_inf = 'minimize';
 mintype_inf = 'mintotol';
-%mintype_inf = 'gd';
+mintype_inf = 'gd';
+mintype_inf = 'lbfgsb';
 
 mintype_lrn = 'minimize';
 lrn_searches = 3;
 mintype_lrn = 'gd';
+
+
+opts_lbfgs_a = lbfgs_options('iprint', -1, 'maxits', 20, ...
+                             'factr', 0.01, ...
+                             'cb', @cb_a);
+
 
 lambda = 0.7;
 

@@ -1,4 +1,3 @@
 
-addpath('../lib');
-addpath('../data');
+addpath('../lbfgsb-stewart');
 
